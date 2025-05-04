@@ -22,7 +22,8 @@ từ commit cũ sang nhánh mới và con trỏ sang nhánh mới rồi git push
 <img src="img/dog1.jpg" alt="dog 1" height="500" weight="500"/> : chỉ đặt height hoặc chỉ đặt weight thì phần tử còn lại sẽ được tự căn.
 <a href="mailto:tranthanhtri23022005@gmail.com?cc=fo3lqm25@gmail.com&subject=hello&body=toi ten la"> : dùng mailto để gửi mail,
 dùng ? để phân tách tên người gửi và các phần trong nội dung mail, dùng & để phân tách các phần nội dung đó.
-&<mã_ký_tự>; : để viết ký tự đặc biệt (tra trong bảng HTML entity)
+&<mã_ký_tự>; : để viết ký tự đặc biệt (tra trong bảng HTML entity).
+<a title="hello bro"> : hiển thị tiêu đề khi để chuột vào.
 <pre>hello       bro< /pre> : giữ nguyên cấu trúc đoạn văn trong nó.
 <code> : sử dụng khi có 1 đoạn code (thường dùng với thẻ <pre> để giữ nguyên định dạng code), trình duyệt sẽ hiểu đây là đoạn code (thẻ có ngữ nghĩa).
 <i> = <em> : in nghiêng và <em> thì trình duyệt sẽ hiểu là nhấn mạnh (thẻ có ngữ nghĩa).
@@ -61,3 +62,36 @@ Dùng trang web codebeauty và tìm HTML escape để chuyển 1 đoạn code tr
 </table>
 <th colspan="2"></th> : thuộc tính colspan="2" dùng để chỉ định phần tử chiếm bao nhiêu cột.
 <td rowspan="2"></td> : thuộc tính rowspan="2" dùng để chỉ định phần tử chiếm bao nhiêu hàng.
+
+================================================ CSS =============================================================
+font-style : kiểu chữ (italic).
+font-family : font chữ (Arial, Halvetica,...).
+font-size : cỡ chữ.
+text-transform : chuyển hoa thường.
+text-align : căn giữa.
+line-height : định khoảng cách giữa các dòng.
+list-style : tác động lên các thẻ li trong ul và ol.
+opacity : quy định độ trong suốt (20%, 50%,...), bao gồm cả nền. Khi set = 0 thì ẩn khỏi giao diện nhưng vẫn chiếm 1 vùng trong đó và tương tác được (vd: copy).
+background-image: url() : chèn hình ảnh vào 1 thẻ.
+display: khi set = none thì ẩn phần tử khỏi giao diện và xóa luôn cả vùng nó đang chiếm.
+visibility : ẩn hoặc hiện element (hidden là ẩn, visible là hiện). Khi hidden thì ẩn khỏi giao diện nhưng vẫn chiếm 1 vùng và không tương tác được.
+.class1.class2 : css cho thẻ có cả class1 và class2 (giống điều kiện và).
+div p : chọn tất cả các thẻ p là con của thẻ div.
+div > p : chọn tất cả thẻ p là con trực tiếp của thẻ div.
+h1 + h2 : chọn 1 thẻ h2 liền sát sau thẻ h1.
+p ~ ul : chọn tất cả thẻ ul nằm sau thẻ p.
+[href] : chọn tất cả các thẻ có thuộc tính href.
+[target="_blank"] : chọn tất cả các thẻ có target="_blank.
+[title~="pic"] : chọn tất cả các thẻ có thuộc tính title chứa từ pic (phải là 1 từ đơn lẻ) trong title.
+[title*="pic"] : chọn tất cả các thẻ có thuộc tính title chứa chuỗi pic (chỉ cần có chuỗi là được) trong title.
+[title|="pic"] : chọn tất cả các thẻ có thuộc tính title có từ duy nhất bắt đầu bằng từ pic (pic, pic-123,...). Nhưng pic_123 và pic abc không được.
+[title^="pic"] : chọn tất cả các thẻ có thuộc tính title bắt đầu bằng chuỗi pic (không quan tâm space đằng sau).
+[title$="1"] : chọn tất cả các thẻ có thuộc tính title kết thúc bằng ký tự 1.
+
+
+opacity = 0 và display = none không có tính thừa kế vì thế không thể hiển thị phần tử con, visibility = hidden thì ngược lại (có thể ghi đè lại visibility = visible để hiển thị).
+opacity và visibility có hỗ trợ animations còn display thì không.
+favicon generator để chuyển png thành file .ico
+Sử dụng prefix để tăng cường tương thích đa chương trình (Chrome, Opera, Firefox, IOS, Android,...). Dùng auto prefixer trên mạng để làm. 
+user-select: none : không cho user tương tác với thẻ.
+Dùng caniuse.com để kiểm tra thuộc tính có cần dùng thêm prefix không.
