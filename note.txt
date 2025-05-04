@@ -1,0 +1,63 @@
+====================================================== TẤT TẦN TẬT VỀ GIT ===================================================
+git branch : đang đứng ở nhánh nào.
+git branch -a : kiểm tra tất cả các nhánh local và remote.  
+git brach -c <tên_nhánh_mới> : tạo ra 1 bản copy từ nhánh hiện tại sang nhánh mới và vẫn ở nhánh hiện tại (thay đổi ở đâu thì chỉ nhánh đó thay đổi).
+git branch -b <tên_nhánh_mới> : tạo ra 1 bản copy từ nhánh hiện tại sang nhánh mới và nhảy sang nhánh mới luôn (thay đổi ở đâu thì chỉ nhánh đó thay đổi).
+git checkout <tên_nhánh> : chuyển từ nhánh hiện tại sang nhánh khác.
+git push -u origin <tên_nhánh_cần_push> : push nhánh mới lần đầu lên github, lần sau chỉ cần dùng git push.
+git branch -d <tên_nhánh_cần_xóa> : xóa nhánh local (không thể xóa nhánh đang ở hiện tại hoặc nhánh đã commit nhưng chưa push lên).
+git branch -D <tên_nhánh_cần_xóa> : xóa nhánh local đã commit nhưng chưa được push.
+git push -d origin <tên_nhánh_cần_xóa> : xóa nhánh trên github.
+git merge <tên_nhánh> : hợp nhất nhánh khác vào nhánh hiện tại.
+git log : kiểm tra các lần commit (nhấn q để thoát).
+git log --oneline : kiểm tra các lần commit chỉ xem id và tên commit.
+git checkout <id_của_commit> : để quay lại code tại commit cũ.
+Muốn đẩy code cũ lên github thì git checkout <id_của_commit> để quay lại nhánh cũ rồi git checkout -b <tên_nhánh_mới> để tạo 1 bản copy.
+từ commit cũ sang nhánh mới và con trỏ sang nhánh mới rồi git push -u origin <tên_nhánh_cần_push> để push lên github.
+
+========================================================== HTML ===============================================================
+<br> : để xuống dòng (break).
+<hr> : để kẻ 1 dòng ngang (horizontal rule).
+<a href="" target=""> : target có thể là _self là đi tới href ở trang hiện tại, target là _blank là đi tới href ở trang mới.
+<img src="img/dog1.jpg" alt="dog 1" height="500" weight="500"/> : chỉ đặt height hoặc chỉ đặt weight thì phần tử còn lại sẽ được tự căn.
+<a href="mailto:tranthanhtri23022005@gmail.com?cc=fo3lqm25@gmail.com&subject=hello&body=toi ten la"> : dùng mailto để gửi mail,
+dùng ? để phân tách tên người gửi và các phần trong nội dung mail, dùng & để phân tách các phần nội dung đó.
+&<mã_ký_tự>; : để viết ký tự đặc biệt (tra trong bảng HTML entity)
+<pre>hello       bro< /pre> : giữ nguyên cấu trúc đoạn văn trong nó.
+<code> : sử dụng khi có 1 đoạn code (thường dùng với thẻ <pre> để giữ nguyên định dạng code), trình duyệt sẽ hiểu đây là đoạn code (thẻ có ngữ nghĩa).
+<i> = <em> : in nghiêng và <em> thì trình duyệt sẽ hiểu là nhấn mạnh (thẻ có ngữ nghĩa).
+<b> = <strong> : in đậm và <strong> thì trình duyệt sẽ hiểu là quan trọng (thẻ có ngữ nghĩa).
+Dùng trang web codebeauty và tìm HTML escape để chuyển 1 đoạn code trong HTML gồm nhiều ký tự đặc biệt sang HTML entity.
+<table></table> : để vẽ bảng
+<tr></tr> : table row đại diện 1 hàng trong HTML
+<td></td> : table data định nghĩa 1 ô dữ liệu trong 1 bảng
+<th></th> : table header định nghĩa 1 ô tiêu đề trong bảng.
+<thead></thead> : table header định nghĩa phần đầu của bảng, thường chứa các ô tiêu đề "th" của các cột trong bảng.
+<tbody></tbody> : table body định phần thân của bảng, thường chứa các thẻ "tr" và các ô dữ liệu "td" tương ứng.
+<tfoot></tfoot> : table footer định nghĩa phần cuối của bảng, thường chứa các ô chú thích, tổng kết, hoặc thông tin cuối về bảng.
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Shirt</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Short</td>
+            <td>200</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Tong cong</td>
+            <td>300</td>
+        </tr>
+    </tfoot>
+</table>
+<th colspan="2"></th> : thuộc tính colspan="2" dùng để chỉ định phần tử chiếm bao nhiêu cột.
+<td rowspan="2"></td> : thuộc tính rowspan="2" dùng để chỉ định phần tử chiếm bao nhiêu hàng.
