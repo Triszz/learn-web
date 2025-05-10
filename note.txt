@@ -633,13 +633,26 @@ Nếu max-width < flex-basis -> chiều rộng sẽ theo max-width.
 Nếu max-width > flex-basis -> chiều rộng sẽ theo flex-basis.
 Ở kích thước mặc định, thì max-width = content trong box đó và min-width = kích thước từ dài nhất của content.
 
-
-
-
+================================ Lưu ý =================================
 opacity = 0 và display = none không có tính thừa kế vì thế không thể hiển thị phần tử con, visibility = hidden thì ngược lại (có thể ghi đè lại visibility = visible để hiển thị).
 opacity và visibility có hỗ trợ animations còn display thì không.
 favicon generator để chuyển png thành file .ico
 Sử dụng prefix để tăng cường tương thích đa chương trình (Chrome, Opera, Firefox, IOS, Android,...). Dùng auto prefixer trên mạng để làm. 
 user-select: none : không cho user tương tác với thẻ.
 Dùng caniuse.com để kiểm tra thuộc tính có cần dùng thêm prefix không.
+
+===================================================== Project 1 ========================================================
+Tạo base dự án:
+Reset Css và trong style.css:
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem; //khôi phục lại cỡ chữ mặc định theo rem.
+}
+
+
 
