@@ -28,6 +28,7 @@ dùng ? để phân tách tên người gửi và các phần trong nội dung m
 <code> : sử dụng khi có 1 đoạn code (thường dùng với thẻ <pre> để giữ nguyên định dạng code), trình duyệt sẽ hiểu đây là đoạn code (thẻ có ngữ nghĩa).
 <i> = <em> : in nghiêng và <em> thì trình duyệt sẽ hiểu là nhấn mạnh (thẻ có ngữ nghĩa).
 <b> = <strong> : in đậm và <strong> thì trình duyệt sẽ hiểu là quan trọng (thẻ có ngữ nghĩa).
+<u> : gạch chân.
 Dùng trang web codebeauty và tìm HTML escape để chuyển 1 đoạn code trong HTML gồm nhiều ký tự đặc biệt sang HTML entity.
 <table></table> : để vẽ bảng
 <tr></tr> : table row đại diện 1 hàng trong HTML
@@ -62,7 +63,9 @@ Dùng trang web codebeauty và tìm HTML escape để chuyển 1 đoạn code tr
 </table>
 <th colspan="2"></th> : thuộc tính colspan="2" dùng để chỉ định phần tử chiếm bao nhiêu cột.
 <td rowspan="2"></td> : thuộc tính rowspan="2" dùng để chỉ định phần tử chiếm bao nhiêu hàng.
-
+<a href="#id"> :việc cho href="#id" để nhảy đến thẻ có id đó.
+<label> : nhãn, nó sẽ đi kèm với <input type="checkbox"> hoặc <input type="text"> 
+<span> : chỉ chiếm đủ phần nội dung của nó (inline).
 ================================================ CSS =============================================================
 font-style : kiểu chữ (italic).
 font-family : font chữ (Arial, Halvetica,...).
@@ -87,6 +90,550 @@ p ~ ul : chọn tất cả thẻ ul nằm sau thẻ p.
 [title|="pic"] : chọn tất cả các thẻ có thuộc tính title có từ duy nhất bắt đầu bằng từ pic (pic, pic-123,...). Nhưng pic_123 và pic abc không được.
 [title^="pic"] : chọn tất cả các thẻ có thuộc tính title bắt đầu bằng chuỗi pic (không quan tâm space đằng sau).
 [title$="1"] : chọn tất cả các thẻ có thuộc tính title kết thúc bằng ký tự 1.
+================= Pseudo-class ====================
+p:hover : chọn các thẻ <p> khi di chuột qua.
+a:active : chọn các thẻ <a> khi nhấn giữ chuột
+a:link : chọn các thẻ <a> khi có liên kết chưa truy cập.
+a:visited : chọn các thẻ <a> có liên kết đã truy cập.
+a:focus: chọn các thẻ <a> đang được click vào.
+div:empty : chọn các thẻ <div> không có nội dung.
+#home:target : chọn thẻ có id="home" khi trên URL có hash tương ứng (VD: https://domain.com/#home).
+
+p:first-child : chọn các thẻ <p> là thẻ con đầu tiên.
+p:last-child : chọn các thẻ <p> là thẻ con cuối cùng.
+p:nth-child(2) : chọn các thẻ <p> là thẻ con thứ 2 từ trên xuống. (even: vị trí chẵn, odd: vị trí lẻ, 2n+1: vị trí mong muốn).
+p:nth-last-child(2) : chọn các thẻ <p> là thẻ con thứ 2 từ dưới lên.
+p:only-child : chọn các thẻ <p> là thẻ con duy nhất.
+
+p:first-of-type : chọn các thẻ <p> xuất hiện đầu tiên trong thẻ cha.
+p:last-of-type : chọn các thẻ <p> xuất hiện cuối cùng trong thẻ cha.
+p:nth-of-type(n) : chọn các thẻ <p> xuất hiện thứ n trong thẻ cha tính từ trên xuống. (even: vị trí chẵn, odd: vị trí lẻ, 2n+1: vị trí mong muốn).
+p:nth-last-of-type(n) : chọn các thẻ <p> xuất hiện thứ n trong thẻ cha tính từ cuối lên.
+p:only-of-type : chọn các thẻ <p> xuất hiện duy nhất trong thẻ cha.
+
+.top:not(p) : chọn các thẻ có class="top" loại trừ thẻ p.
+
+=================== Pseudo elements ==================
+p::first-line : chọn dòng đầu tiên của các thẻ <p> (chỉ áp dụng được với display: block và inline-block).
+p::first-letter : chọn chữ cái đầu tiên của các thẻ <p>.
+p::selection : chọn vùng đang được bôi đen của các thẻ <p>.
+li::marker : chọn các điểm đánh dấu của các phần tử <li>.
+.box::before : thêm phần tử vào đằng trước class box.
+.box::after : thêm phần tử vào đằng sau class box.
+VD: 
+p::before{
+  content: "Phía trước.";
+  color: red;
+  display: block; 
+}
+
+================= Box Model ============================
+Box model : trình duyệt luôn coi mỗi phần tử là 1 box - hộp chữ nhật.
+Nội dung (width, height): hình ảnh, text, video,...
+padding: khoảng đệm nội dung và viền (không chứa nội dung).
+border: viền của phần tử (viền nét liền, đứt,...).
+margin: khoảng cách với các phần tử liền kề khác.
+height x width = content + padding + border. (không bao gồm margin) 
+
+padding-top, padding-bottom, padding-left, padding-right.
+padding: 20px; //cả 4 hướng
+padding: 20px 10px; //trên dưới 20px, trái phải 10px.
+padding: 20px 10px 40px; //trên 20px, trái phải 10px, dưới 40px.
+padding: 20px 10px 40px 50px; //trên 20px, phải 10px, dưới 40px, trái 50px.
+
+border: <độ rộng> <kiểu viền> <màu viền>
+border: 10px solid blue (cho cả 4 border top left bottom right).
+border viết tường minh: (giống quy tắc padding).
+border-width: 10px 20px 30px 40px 
+border-style: solid dashed double dotted
+border-color: blue yellow red pink
+border-top, border-bottom, border-left, border-right.
+border-radius: bo góc.
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-radius: 30px; (cả 4 góc)
+border-radius: 30px 50px; //(top-left & bottom-right), (top-right & bottom-left)
+border-radius: 30px 50px 70px; //(top-left), (top-right & bottom-left), (bottom-right)
+border-radius: 30px 50px 70px 80px //mỗi góc một giá trị (theo chiều kim đồng hồ từ góc trên trái).
+1 số kiểu viền:
+dashed: đường nét đứt.
+dotted: viền là các chấm dot.
+double: viền 2 đường song song liền nhau.
+groove: viền 3D.
+ridge: viền 3D.
+inset: viền 3D.
+outset: viền 3D.
+
+margin: sử dụng để xác định khoảng cách giữa các phần tử trên trang.
+margin-top, margin-bottom, margin-right, margin-left.
+margin: 20px; //cả 4 hướng
+margin: 20px 10px; //trên dưới 20px, trái phải 10px.
+margin: 20px 10px 40px; //trên 20px, trái phải 10px, dưới 40px.
+margin: 20px 10px 40px 50px; //trên 20px, phải 10px, dưới 40px, trái 50px.
+Để căn giữa: set margin: 0 auto //trên dưới 0, trái phải auto và width = 700px. Nếu muốn chữ căn giữa trong ô luôn thì dùng text-align: center.
+
+========================= Margin Collapse =======================
+Margin collapse: là hiện tượng chồng lặp thuộc tính margin khi 2 phần tử liền kề cùng thiết lập margin với phần tử còn lại theo chiều dọc, chiều ngang không bị.
+(VD: 1 cái margin-bottom: 50px, 1 cái margin-top: 70px -> 2 box1 và box2 chỉ cách nhau theo chiều dọc 70px vì 70px > 50px).
+Cách khắc phục: chỉ margin theo 1 chiều nhất quán, từ trên xuống hoặc dưới lên.
+Trong trường hợp bắt buộc: thêm vào thẻ cha thuộc tính display: flex và flex-direction: column.
+TH2: xảy ra với quan hệ cha con: khi set margin cùng chiều cho thẻ cha và thẻ con thì sẽ bị collapse, kích thước nào lớn hơn sẽ quyết định.
+Cách khắc phục cho TH2: thêm vào thẻ cha thuộc tính display: flex và flex-direction: column.
+
+========================= Outline ==========================
+Outline là đường viền bao quanh mép ngoài cùng của đối tượng, tính từ phần cuối cùng có set giá trị.
+outline: 20px solid blue;
+Không vẽ được nhiều chiều như border.
+outline-offset: 10px //cách phần cuối có set giá trị ra 1 khoảng 10px.
+
+===================== box-sizing ======================
+box-sizing: content-box và border-box. Thực tế dự án ta sử dụng border-box thường xuyên hơn, để kích thước khớp với thiết kế, tránh phải tính toán lại phần nội dung.
+Khi không set box-sizing thì mặc định là content-box.
+Khi box-sizing: content-box, width, height là kích thước của vùng content.  
+Khi box-sizing: border-box, width, height là kích thước của toàn bộ phần tử bao gồm border, padding, content (thêm padding, border thì giảm content).
+==================== Mức độ ưu tiên áp dụng khi có nhiều thuộc tính chồng chéo nhau cùng tác động lên 1 phần tử ===================
+1. !important
+2. Inline style
+3. ID(#) selector
+4. Class(.) hoặc Pseudo-class(:) selector
+5. Element selector (h, p, li, div,...)
+6. Universal selector(*) : Bộ chọn chung
+
+======================= Inheritance - Kế thừa ===========================
+Inheritance - Kế thừa: Các phần tử con nhận được các giá trị thuộc tính thừa kế phần tử cha.
+Các thuộc tính kế thừa chủ yếu liên quan đến văn bản. 
+
+==================== Đơn vị trong CSS ==========================
+px: đơn vị tuyệt đối.
+%: đơn vị tương đối so với thẻ cha. font-size mặc định trong trình duyệt thường là 16px.
+vw (viewport width): chiều rộng theo khung nhìn (phần hiển thị trên browser). VD: 50vw: 50% chiều rộng theo khung nhìn.
+vh (viewport height): chiều cao theo khung nhìn (phần hiển thị trên browser).
+2em: kích thước gấp 2 lần font-size của thẻ hiện tại hoặc của thẻ cha hoặc thẻ html (thường là 16px). Ưu tiên font-size của nó nếu có set.
+3rem: kích thước gấp 3 lần font-size của root element, nghĩa là thẻ html (thường là 16px) và không có kế thừa.
+1 rem = 16px -> Nên đổi 1 rem = 10px. Cần thay đổi thẻ html, font-size: 62.5%.
+Nên dùng rem vì có thể điều chỉnh 1 cách linh hoạt khi người dùng tăng giảm kích thước trong trình duyệt. Khi cần tăng font-size tất cả 
+lên 10% thì chỉ cần thay đổi font-size của html font-size: 72.5% là được. 
+
+==================== CSS Color ==========================
+Thuộc tính color có tính kế thừa.
+color: rgba(red, green, blue, alpha) //alpha là độ trong suốt chạy từ 0->1, 0 là trong suốt hoàn toàn (không thấy nữa).
+color: #rrggbb
+Nếu muốn dùng màu hiện tại để set cho các thuộc tính thì có thể dùng currentColor.
+
+===================== Font chữ trong CSS ===================
+Sans serif: font không có gai ở đầu chữ cái.
+serif: font có gai ở đầu chữ cái.
+Monospace: font có cùng độ rộng.
+Tăng tốc trang web bằng cách thêm các phông chữ hệ thống có sẵn vào body:
+body {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+Nhúng font chữ để bất cứ máy nào cũng hiển thị giống nhau, kể cả máy đó không cài font này. Cách làm:
+1. Lên trang fonts.google.com chọn font chữ
+2. Thêm font chữ yêu thích vào và bên phải ở trên có mục selected family, copy thẻ <link> vào <head> trước "style.css"
+3. Quay lại web copy phần CSS vào body hoặc nơi ưa thích.
+
+font-weight: độ dày của chữ (thường từ 100->900). font-weight mặc định là 400.
+font-weight: lighter (độ dày giảm 1 cấp).
+font-weight: bolder (độ dày tăng 1 cấp).
+
+line-height: chiều cao giữa các dòng.
+line-height: 1.5 hoặc line-height: 150% là như nhau và đều bằng 1.5 lần font-size.
+
+letter-spacing: tăng giảm khoảng cách giữa các ký tự (10px, 20px,...).
+word-spacing: tăng giảm khoảng cách giữa các từ (10px, 20px,...).
+
+text-algin: căn text so với box chứa nó (thẻ block, inline).
+text-align: justify //căn dàn đều 2 bên.
+text-align: left //căn trái (mặc định khi không set text-align).
+text-align: right //căn phải.
+text-align: center //căn giữa.
+
+text-decoration: none //bỏ gạch chân.
+text-decoration: underline //thêm gạch chân.
+text-decoration: line-through //thêm gạch ngang chữ.
+text-decoration: overline //gạch trên đầu.
+text-decoration: underline dotted blue 5px //định kiểu của dấu gạch, màu sắc, kích thước.
+
+text-indent: thụt lề.
+text-indent: 40px //thụt lề 40px.
+
+text-transform: capitalize //viết hoa chữ cái đầu của mỗi từ.
+text-transform: lowercase //viết thường toàn bộ text.
+text-transform: uppercase //viết hoa toàn bộ text.
+
+white-space: quy định về khoảng trắng khi code.
+white-space: normal //trạng thái mặc định.
+white-space: nowrap //không xuống dòng (kể cả đoạn văn dài chạm tới lề).
+white-space: pre //giữ nguyên định dạng code, giống thẻ <pre>.
+white-space: pre-line //giữ nguyên định dạng theo line(enter). Nghĩa là tất cả khoảng trắng dư thừa ở mỗi dòng sẽ bị xóa, còn enter(xuống dòng) thừa thì giữ nguyên.
+white-space: pre-wrap //bảo toàn cả enter và dấu cách, nhưng khi 1 từ không đủ khoảng trắng để viết thì xuống dòng ngay.
+
+word-break: khi đoạn text dài, người dùng nhập liền nhau thì có thể gây ra vỡ giao diện vì text không bị xuống dòng nên dùng 
+word-break: break-all để bẻ xuống hàng khi tới giới hạn.
+
+text-shadow: bóng đổ text.
+text-shadow: <trục-ngang> <trục-dọc> <độ-nhòe> <màu>
+text-shadow: 0px 0px 0px red.
+Trục ngang dương thì chữ đổ qua phải, âm qua trái.
+Trục dọc dương thì đổ xuống dưới, âm lên trên.
+
+overflow: visible //thuộc tính mặc định: hiển thị nội dung kể cả vượt box chứa.
+overflow: scroll //tự động hiện scroll khi tràn khung.
+overflow: hidden //ẩn nội dung khi nội dung vượt box chứa.
+overflow: auto //nếu nội dung ngắn -> không có scroll bar, nếu nội dung vượt box chứa -> tự động sinh scroll bar.
+
+text-overflow: ellipsis //hiện dấu 3 chấm khi đoạn văn dài vượt quá chiều rộng.
+Cách làm dấu ... ở dòng ở thứ 2, 3,...:
+p{
+    background-color: aqua;
+    overflow: hidden;
+    -webkit-line-clamp: 2; hiện dấu ... ở dòng 2 khi đoạn văn vượt quá 2 dòng.
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+
+overscroll-behavior: điều chỉnh khi người dùng cuộn trang đến khi không còn nội dung để cuộn nữa.
+overscroll-behavior: auto //mặc định: khi cuộn hết nội dung trong box con, nếu cuộn tiếp thì box ngoài sẽ bị cuộn luôn.
+overscroll-behavior: contain //khi cuộn hết nội dung trong box con, nếu cuộn tiếp thì box ngoài không ảnh hưởng (phải di chuột ra bên ngoài).
+custom scrollbar: 
+/* width */
+::-webkit-scrollbar {         .class::-webkit-scrollbar để thêm thuộc tính này vào 1 class chỉ định.
+  width: 10px;
+}
+
+/* Track */ thanh đằng sau thanh cuốn
+::-webkit-scrollbar-track {     .class::-webkit-scrollbar-track
+  background: #f1f1f1;
+}
+
+/* Handle */ thanh cuốn
+::-webkit-scrollbar-thumb {     .class:-webkit-scrollbar-thumb
+  background: #888;
+}
+
+/* Handle on hover */ di chuột vào thanh cuốn
+::-webkit-scrollbar-thumb:hover {   .class::-webkit-scrollbar-thumb:hover
+  background: #555;
+}
+
+Nhúng icon: ->  -> Đặt link trước css.
+Bước 1: truy cập https://fontawesome.com/.
+Bước 2: Copy link màu đỏ và dán vào link trên phần link của css.
+Bước 3: Vào trang fontawesome.com, vào phần icon rồi nhập tên icon muốn gắn.
+Bước 4: Copy code HTML rồi dán vào.
+
+================================== Background ================================
+background-color: nền sẽ đổ vào toàn bộ các phần tính vào kích thước phần tử (border, padding, content).
+
+background-image: ở trạng thái mặc định, hình ảnh sẽ lặp vô hạn, chiếm hết kích thước của thẻ chứa nó.
+background-image: url(bg/leaf.png), url(bg/small.jpg)
+Khi background-image có 2 url thì url xếp trước sẽ nằm trên và nên để .png được ưu tiên vì nó có thuộc tính trong suốt để có thể thấy nền nằm sau.
+
+background-image: linear-gradient : dải nền chuyển sắc.
+background-image: linear-gradient(direction, color-stop1, color-stop2,...).
+stop1 = 40%: nghĩa là từ 0% đến 40% màu đầu tiên không chuyển màu.
+stop2 = 60%: nghĩa là từ 60% đến 100% màu thứ hai không chuyển màu.
+background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%,...)
+background-image: linear-gradient(to left, #8ec5fc 0%, #e0c3fc 100%,...).
+background-image: linear-gradient(to right, #8ec5fc 0%, #e0c3fc 100%,...).
+background-image: linear-gradient(to top left, #8ec5fc 0%, #e0c3fc 100%,...).
+% không áp dụng chuyển sắc từng màu.
+direction không nhập thì mặc định chuyển màu từ top -> bottom = to bottom. 
+Dùng trang https://cssgradient.io/gradient-backgrounds/ để tạo ra màu nền chuyển sắc đẹp mắt.
+
+background-size: điều chỉnh kích thước ảnh nền.
+background-size: contain //ảnh vừa khung hình, giữ nguyên tỷ lệ ảnh, không bị mất ảnh, nếu còn khoảng trống, ảnh sẽ bị lặp lại.
+background-size: cover //ảnh vừa khớp khung hình, giữ nguyên tỷ lệ ảnh, có thể mất 1 phần ảnh, không bị lặp ảnh.
+background-size: 100% //chiều rộng = 100% chiều rộng box (hoặc cũng có thể dùng đơn vị px).
+background-size: 100% 100% //chiều rộng = 100% chiều rộng box, chiều cao = 100% chiều cao box (hoặc cũng có thể dùng đơn vị px).
+
+background-position: vị trí bắt đầu đặt ảnh nền (top, top left, top right, left, right, center, bottom, bottom left, bottom right). 
+background-position: 0% 0% //phần trăm đầu tiên là trục x, thứ 2 là trục y. Tính từ top left (0% 0%).
+%x càng cao dịch phải càng nhiều, %y càng cao dịch xuống càng nhiều.
+Có thể dùng px thay cho %.
+
+background-attachment: scroll //mặc định: ảnh sẽ tự động cuộn theo trình duyệt khi kéo lên xuống.
+background-attachment: fixed //ảnh cố định khi kéo lên xuống.
+background-attachment: local //ảnh cố định cục bộ trong bố cục con.
+
+background-clip: quy định vùng đổ nền.
+background-clip: border-box //mặc định, ảnh sẽ đổ vào full kích thước phần từ (border + padding + content).
+background-clip: padding-box //ảnh chỉ đổ đến padding.
+background-clip: content-box //ảnh chỉ đổ phần content.
+background-clip: text
+-webkit-background-clip: text //đổ màu nền trong phần text, không hiển thị phần trống ngoài text.
+VD:
+Kiểm tra xem trình duyệt có hỗ trợ thuộc tính này không rồi mới thực hiện trong code trong ngoặc.
+@supports (background-clip: text) or (-webkit-background-clip: text){
+  .test {
+    color: transparent;
+    background: #eeaeca;
+    background: radial-gradient(
+      circle,
+      rgba(238, 174, 202, 1) 0%,
+      rgba(148, 187, 233, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-size: 100px;
+  }
+}
+
+
+background-origin: xác định gốc bức ảnh đặt ở vị trí nào (vị trí bắt đầu vẽ hình nền).
+background-origin: padding-box //mặc định: gốc ảnh mặc định ở phần padding.
+background-origin: border-box //gốc 0,0 của ảnh sẽ ở border. 
+background-origin: content-box //gốc 0,0 của ảnh sẽ ở phần content.
+
+Phân biệt giữa background-clip và background-origin:
+Background-clip: là chỉ định hình nền được hiển thị ở vùng nào thôi.
+Background-origin: là vị trí bắt đầu đặt ảnh (gốc tọa độ của ảnh hay gốc đặt ảnh).
+
+background-repeat: repeat //BG lặp lại cả 2 trục (mặc định).
+background-repeat: no-repeat //BG không lặp lại.
+background-repeat: repeat-x //BG lặp lại theo trục x.
+background-repeat: repeat-y //BG lặp lại theo trục y.
+
+VD:
+div {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  border: 10px solid black;
+
+  background-image: url('image.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  background-origin: padding-box; /* gốc tọa độ */
+  background-clip: content-box;   /* vùng cắt */
+  background-position: 20px 30px;  /* Ảnh được dịch 20px từ trái, 30px từ trên - tính từ gốc background-origin */
+}
+
+Cú pháp viết tắt background:
+background: bg-color bg-image bg-position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;
+
+backdrop-filter: áp dụng các hiệu ứng đồ họa lên vùng phía sau của 1 phần tử.
+backdrop-filter: blur(50px) contrast(50%). 
+-webkit-backdrop-filter: blur(50px) contrast(50%). //Cần dùng prefix vì có nhiều trình duyệt không hỗ trợ hoặc dùng @supports cho chắc. 
+blur(px): làm mờ nền phía sau.
+brightness(): điều chỉnh độ sáng nền sau (0 -> 1).
+contrast(): điều chỉnh độ tương phản (0 -> 1).
+grayscale(): chuyển nền phía sau sang thang xám (0 -> 1).
+sepia(): tạo hiệu ứng ảnh cổ điển vàng nâu (0 -> 1).
+saturate(): tăng hoặc giảm độ bão hòa màu (0 -> 1). 
+============================= Clip-path ===============================
+Tạo 1 vùng cắt, nội dung trong vùng cắt sẽ được hiển thị. 
+Nội dung ngoài vùng cắt sẽ bị ẩn đi.
+clip-path: circle() //cắt hình tròn.
+clip-path: inset() //cắt hình chữ nhật.
+clip-path: polygon() //cắt hình đa giác.
+VD: 
+clip-path: circle(40% at 50% 40%) //bán kính = 40% chiều rộng của phần tử (width) tại x = 50% và y = 50% (x và y là tâm đường tròn).
+clip-path: inset(20px 40px) //khoảng cách cắt vào từ các cạnh của phần tử, các đối số giống thuộc tính padding.
+Nếu muốn bo góc thì thêm round phía sau các đối số.
+clip-path: inset(20px round 15px) //bo cả 4 góc.
+clip-path: inset(20px round 15px 20px) //bo theo (top-left & bottom-right), (top-right & bottom-left).
+clip-path: inset(20px round 15px 20px 30px) //bo theo (top-left), (top-right & bottom-left), (bottom-right).
+clip-path: inset(20px round 15px 20px 30px 40px) //mỗi góc một giá trị (theo chiều kim đồng hồ từ góc trên trái).
+clip-path: polygon(x y, x y, x y, x y) //cặp x y là các cặp tọa độ theo các góc theo x,y (giống như chọn ra các điểm cắt rồi nối vào).
+Vào web css clip path generator để tự tạo hình mong muốn.
+
+=========================== Box shadow ========================
+box-shadow: tạo bóng đổ.
+box-shadow: 10px 20px 5px 0px rgba(0,0,0,75) //đổ bóng theo trục x = 10px, y = 20px, độ nhòe 5px, bán kính lây lan 0px và màu.
+box-shadow: inset 10px 20px 5px 0px rgba(0,0,0,75) //chèn bóng đổ vào đối tượng.
+box-shadow: 10px 20px 5px 0px rgba(0,0,0,75), 10px 20px 5px 0px rgba(0,0,0,75) //dùng dấu , để thêm nhiều bóng đổ.
+Dùng web cssgenerator.org để tự tạo 1 bóng đổ.
+
+=========================== Pointer-events =====================
+pointer-events: kiểm soát hoạt động của chuột trên các phần tử HTML. 
+pointer-events: none //không copy hoặc lưu ảnh được, không tương tác được với link nữa.
+
+========================== Lazy load ===========================
+lazy load: không cần load ảnh khi người dùng chưa di chuyển đến văn bản chứa ảnh.
+thêm thuộc tính loading="lazy" //ảnh chưa load khi người dùng chưa di chuyển đến văn bản chứa ảnh.
+
+========================= CSS counter ==========================
+VD:
+.box{
+  counter-reset: section; //tạo 1 biếm đếm tên section, reset nó = 0.
+}
+h2{
+  counter-increment: section; //tăng biến đếm lên 1 (cứ gặp h2 thì tăng lên 1).
+}
+h2::before{
+  content: "Phần " counter(section) ": "; //chèn thêm text trước mỗi mục.
+}
+
+======================== hàm calc() =================================
+hàm calc(): 
+calc(100% - 100px) //phải có khoảng trắng trước và sau dấu + - * /.
+calc(100px * 2) //viết số có đơn vị trước hay sau đều được, 2 thằng không được cùng có đơn vị.
+calc(100% / 2) //viết số có đơn vị trước, số không có đơn vị phía sau và không chia cho 0.
+
+======================= CSS Variables ==============================
+Khi 1 giá trị css dùng đi dùng lại nhiều lần, ta có thể gán biến cho nó để tái sử dụng.
+Khai báo biến trong 1 thẻ nào đó sẽ áp dụng được biến đó trong thẻ đó và các thẻ con của nó.
+Khai báo biến trong root hoặc html sẽ áp dụng cho toàn trang.
+Biến có thể bị ghi đè.
+:root{
+  --box-height: 100px; // --tên_biến
+  --box-color: #0f0;
+}
+.box1{
+  height: var(--box-height);
+  background: var(--box-color, red); //red là giá trị backup của biến khi giá trị của biến không hoạt động.
+}
+
+======================== CSS Position =============================
+position cho phép điều chỉnh vị trí các phần tử trên trang web.
+position: static //mặc định: phần tử sẽ cố định trên trang.
+
+Căn giữa text ở các khối:
+display: flex;
+justify-content: center;
+align-items: center;
+
+position: relative; //định vị so với vị trí ban đầu của nó 1 khoảng x (ở đây phần tử cách cạnh trái 50px). Nhưng chỗ cũ của nó vẫn bị chiếm.
+left: 50px;
+
+position: absolute //phần tử thực sự được đưa ra khỏi luồng ban đầu và đưa lên lớp trên so với lớp hiện tại (không chiếm vị trí ban đầu đã chiếm giữ).
+1. Nếu không có tổ tiên có position: relative thì phần tử được định vị theo top left corner webpage.
+2. Phần tử được định vị theo tổ tiên gần nhất đặt position là relative.
+
+position: fixed //fix cứng phần tử theo viewport (vùng hiển thị nội dung trên màn hình của trình duyệt web) và cũng được đưa ra khỏi luồng lên lớp trên.
+inset: 50px //cách đều 4 góc 50px (các đối số tương tự như padding).
+
+position: sticky //định vị phần tử dính lại theo thẻ cha gần nhất có thanh cuộn scroll bar.
+
+============================ z-index ================================
+z-index: dùng để xác định xem phần tử nào nằm cao hơn phần tử nào.
+Khi các phần tử có cùng kiểu vị trí (position) được định nghĩa là relative, absolute, fixed.
+Các phần tử static không bị ảnh hưởng bởi z-index.
+
+=========================================== Page Layout ===============================================
+Page Layout: còn gọi là bố cục - dàn trang.
+Cơ bản là cách ta xếp đặt khối bố cục con (component layout) lên trên webpage.
+Việc xếp đặt giúp cho trang web nhìn đẹp, thu hút người xem, và truyền tải nội dung 1 cách có trật tự, logic.
+Component Layout: là các bố cục con, nơi mà: text, images, videos... và các nội dung khác được xếp đặt.
+3 cách phổ biến để xây dụng layout với CSS:
+1. Float Layout:
+float: left //phần tử sẽ bị trôi khỏi luồng bình thường và các phần tử còn lại sẽ bao quanh phần tử đó.
+Trong trường hợp muốn 1 phần tử nào đó không bị chèn ép để bao quanh 1 phần tử set layout, ta dùng clear: left (không bị giá trị float bên trái ảnh hưởng), clear: right và clear: both.
+
+======================================= Flex Box ====================================
+display: flex //đưa phần tử ra khỏi luồng thông thường, tuân theo các quy tắc riêng (box cha chiếm hết chiều ngang của thẻ cha nó).
+Khi set display: flex thì box cha sẽ sinh ra trục main axis (trục ngang) và cross axis (trục dọc).
+main start nằm ở bên trái, main end bên phải, nghĩa là main axis hướng từ trái sang phải.
+cross star nằm ở trên, cross end nằm ở dưới, nghĩa là cross axis hướng từ trên xuống.
+display: inline-flex //box cha chỉ có độ dài vừa với nội dung của các box con trong nó.
+gap: 40px //các phần tử cách nhau 1 khoảng 40px.
+Các nhóm thuộc tính flexbox:
+1. Flex-Container: các thuộc tính cho box cha.
+  justify-content
+  align-items
+  flex-wrap
+  align-content
+  flex-direction
+  flex-flow
+
+2. Flex-Item: các thuộc tính cho các box con.
+  algin-self
+  flex-grow
+  flex-shrink
+  flex-basis
+  order
+  flex
+
+============================== Flex-Container: các thuộc tính cho box cha ===============================
+justify-content: sẽ căn các phần tử theo trục main axis.
+justify-content: flex-start //mặc định: các item sẽ dồn sang trái (main start).
+justify-content: flex-end //các item sẽ dồn sang hướng bên phải (main end).
+justify-content: center //các item sẽ nằm giữa khối cha.
+justify-content: space-between //các item ngoài cùng sẽ ra sát lề và khoảng cách giữa các item sẽ bằng nhau.
+justify-content: space-around //khoảng trắng trái phải các item là như nhau, vì vậy mà khoảng trắng giữa các phần tử gấp đôi khoảng trắng giữa phần tử ngoài cùng và lề.
+justify-content: space-evenly //các item cách đều nhau, cách cả lề.
+
+align-items: sẽ căn các phần tử theo trục cross axis.
+align-items: stretch //mặc định: kéo giãn các phần tử bằng chiều cao container.
+align-items: flex-start //các item sẽ dồn lên trên (cross start).
+align-items: flex-end //các item sẽ dồn xuống dưới (cross end).
+align-items: center //các item sẽ nằm giữa.
+align-items: baseline //các item sẽ căn theo chân phần tử.
+
+flex-wrap: nowrap //mặc định: các phần tử con thì đều nằm trên cùng 1 hàng.
+flex-wrap: warp //khi chiều rộng của các phần tử con vượt quá chiều rộng của phần tử cha thì các phần tử con sẽ xuống dòng theo chiều trục cross (đi xuống).
+flex-wrap: wrap-reverse //giống wrap nhưng mà sau khi wrap xong thì sẽ đảo ngược thứ tự các dòng (từ cross end lên cross start).
+
+align-content: sử dụng kèm với flex-wrap: wrap, căn theo trục cross. Khác với align-items là align-content áp dụng với 2 hàng trở lên nên cần dùng với flex-wrap: wrap để xuống hàng.
+align-content: stretch //mặc định: các phần tử tự kéo dãn thep trục cross lấp đầy box cha.
+align-content: flex-start //các item sẽ dồn lên trên (cross start).
+align-content: flex-end //các item sẽ dồn xuống dưới (cross end).
+align-content: center //các item sẽ căn giữa theo chiều dọc.
+align-content: space-around //khoảng trắng trên dưới các  hàng item là như nhau, vì vậy mà khoảng trắng giữa các hàng phần tử gấp đôi khoảng trắng giữa hàng phần tử trên cùng và lề.
+align-content: space-between //các hàng item trên cùng và dưới cùng sẽ ra sát lề và khoảng cách giữa các hàng item sẽ bằng nhau.
+
+flex-direction: row //mặc định: hướng trục main axis từ trái sang phải.
+flex-direction: row-reverse //hướng trục main axis từ phải sang trái.
+flex-direction: column //các item được đặt từ trên xuống dưới, lúc này main axis theo chiều dọc (từ trên xuống dưới), còn cross axis theo chiều ngang (từ trái qua phải).
+flex-direction: column-reverse //các item được đặt từ dưới lên trên, lúc này main axis theo chiều dọc (từ dưới lên trên), còn cross axis theo chiều ngang (từ trái qua phải).
+
+flex-flow: cú pháp viết tắt của flex-wrap và flex-direction.
+flex-flow: wrap row-reverse //flex-wrap: wrap và flex-direction: row-reverse.
+
+
+
+=================================== Flex-Item: các thuộc tính cho các box con ============================
+order: mỗi item có order mặc định = 0.
+Dùng order để thay đổi thứ tự cho item (theo thứ tự từ order thấp tới order cao).
+
+align-self: sẽ căn các phần tử theo trục cross axis.
+align-self: stretch //mặc định: kéo giãn phần tử bằng chiều cao container.
+align-self: flex-start //item sẽ dồn lên trên (cross start).
+align-self: flex-end //item sẽ dồn xuống dưới (cross end).
+align-self: center //item sẽ nằm giữa.
+align-self: baseline //item sẽ căn theo chân phần tử.
+
+flex-grow: chia tỷ lệ chiếm (theo main axis) theo trọng số (mặc định = 0, 1, 2, 3,...).
+
+flex-shrink: xác định khả năng co lại của item nếu cần.
+Khi số lượng item nhiều lên, các item tự động co lại vị không đủ chỗ chứa.
+flex-shrink: 1 //mặc định: tự động co lại nếu chiều rộng box cha không đủ chỗ đến khi đạt min-width.
+flex-shrink: 0//không bị co lại.
+flex-shrink: 2//co lại nhanh hơn 2 lần so với các item khác.
+
+flex-basis: set main size item (lưu ý main size theo trục main axis).
+
+flex: cú pháp viết tắt của 3 thuộc tính flex-grow, flex-shrink và flex-basis.
+flex: 0 1 100px.
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================== Thứ tự ưu tiên của chiều rộng ===========================
+1. min-width / max-width 
+2. flex-basis
+3. width
+4. content width
+Nếu max-width < flex-basis -> chiều rộng sẽ theo max-width.
+Nếu max-width > flex-basis -> chiều rộng sẽ theo flex-basis.
+Ở kích thước mặc định, thì max-width = content trong box đó và min-width = kích thước từ dài nhất của content.
+
+
 
 
 opacity = 0 và display = none không có tính thừa kế vì thế không thể hiển thị phần tử con, visibility = hidden thì ngược lại (có thể ghi đè lại visibility = visible để hiển thị).
@@ -95,3 +642,4 @@ favicon generator để chuyển png thành file .ico
 Sử dụng prefix để tăng cường tương thích đa chương trình (Chrome, Opera, Firefox, IOS, Android,...). Dùng auto prefixer trên mạng để làm. 
 user-select: none : không cho user tương tác với thẻ.
 Dùng caniuse.com để kiểm tra thuộc tính có cần dùng thêm prefix không.
+
