@@ -15,7 +15,6 @@ body {
 /* =============================== Các thuộc tính dùng chung ================================ */
 a {
   text-decoration: none;
-  position: relative;
 }
 .main-content {
   width: 1170px;
@@ -60,6 +59,7 @@ a {
 }
 .nav a {
   color: #5f5b53;
+  position: relative;
   font-size: 1.6rem;
   padding: 8px 21px;
 }
@@ -95,7 +95,7 @@ a {
 .hero .body {
   display: flex;
 }
-/* ============================= hero left ============================ */
+/* ================== hero left =================== */
 .hero .media-block {
   width: 48%;
   position: relative;
@@ -156,7 +156,7 @@ a {
 .hero-summary .icon-mkt {
   background: #ebeaff;
 }
-/* =================================== hero right ============================= */
+/* ================== hero right =================== */
 .hero .content-block {
   width: 52%;
   padding-left: 130px;
