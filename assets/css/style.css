@@ -37,6 +37,14 @@ a {
 .btn:hover {
   opacity: 0.9;
 }
+.heading-lv2 {
+  color: #171100;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 3.8rem;
+  line-height: 1.26;
+  letter-spacing: -2%;
+}
 /* ================================ Header ================================== */
 .header {
   background: #fffcf4;
@@ -221,8 +229,134 @@ a {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 4.4rem;
-  line-height: 1.23;
+  line-height: 1.23; /* lấy line-height ban đầu (rem) chia cho font-size */
 }
 .hero .stats strong:nth-child(2) {
   margin-left: 28px;
+}
+
+/*======================================= Courses =================================== */
+.courses {
+  padding: 65px;
+  margin-top: 135px;
+  background: #fff;
+}
+.courses .header .desc {
+  margin-top: 16px;
+  width: 458px;
+  color: #5f5b53;
+  font-size: 1.8rem;
+  line-height: 1.67;
+}
+.courses .header {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* position: relative; */
+}
+.courses .introduce {
+  width: 458px;
+  height: 124px;
+}
+
+/* .courses .back-next-btn {
+  position: absolute;
+  right: 0;
+} */
+.courses .back-next-btn {
+  width: 98px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.courses .control-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.courses .control-btn:hover {
+  color: #fff;
+  background: var(--primary-color);
+}
+.courses .details {
+  margin-top: 55px;
+  display: flex;
+  justify-content: space-between;
+}
+.courses .details .item {
+  width: 370px;
+  height: 466px;
+  border-radius: 12px;
+  border: 1px solid #e2dfda;
+  background: #fff;
+}
+.courses .details .item:hover {
+  box-shadow: 0px 18px 36px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.courses .details .item-content {
+  padding: 16px 22px 22px;
+  position: relative;
+}
+.courses .details .item-heading {
+  display: flex;
+  align-items: center;
+}
+.courses .details .item-heading h3 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1.67;
+}
+.courses .details .item-heading .rate {
+  width: 48px;
+  position: absolute;
+  right: 22px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.courses .details .desc {
+  padding: 10px 0;
+  font-size: 1.4rem;
+  line-height: 1.86;
+  color: #5f5b53;
+}
+
+.courses .price-book {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.courses .price-book span {
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1.67;
+}
+.courses .price-book .btn-book {
+  padding: 0 30px;
+  position: absolute;
+  right: 20px;
+  list-style: 50px;
+}
+
+.courses .item .price-book .btn-book:hover {
+  background: var(--primary-color);
+}
+.courses .details .item-heading > a {
+  color: #171100;
+  font-size: 1.8rem;
+  font-weight: 600px;
+  line-height: 1.67;
 }
