@@ -289,10 +289,10 @@ text-overflow: ellipsis //hiện dấu 3 chấm khi đoạn văn dài vượt qu
 Cách làm dấu ... ở dòng ở thứ 2, 3,...:
 p{
     background-color: aqua;
+    display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 2; hiện dấu ... ở dòng 2 khi đoạn văn vượt quá 2 dòng.
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
+    -webkit-box-orient: vertical;   
 }
 
 
