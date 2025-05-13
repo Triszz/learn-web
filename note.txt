@@ -66,6 +66,7 @@ Dùng trang web codebeauty và tìm HTML escape để chuyển 1 đoạn code tr
 <a href="#id"> :việc cho href="#id" để nhảy đến thẻ có id đó.
 <label> : nhãn, nó sẽ đi kèm với <input type="checkbox"> hoặc <input type="text"> 
 <span> : chỉ chiếm đủ phần nội dung của nó (inline).
+<blockquote> : thẻ dùng để trích dẫn 1 câu nói nào đó.
 ================================================ CSS =============================================================
 font-style : kiểu chữ (italic).
 font-family : font chữ (Arial, Halvetica,...).
@@ -654,5 +655,9 @@ body {
   font-size: 1.6rem; //khôi phục lại cỡ chữ mặc định theo rem.
 }
 
+object-fit: cover //để ảnh không bị méo.
+
+transform: translateX(-100%); //dịch theo trục x.
+transition: all ease 0.5s; //hiệu ứng trượt.
 
 

@@ -249,7 +249,7 @@ a {
 
 /*======================================= Courses =================================== */
 .courses {
-  padding: 65px;
+  padding: 65px 0;
   margin-top: 135px;
   background: #fff;
 }
@@ -282,9 +282,9 @@ a {
   display: flex;
   justify-content: space-between;
 }
-.courses .details .item .img {
+/* .courses .details .item .img {
   width: 100%;
-}
+} */
 .courses .control-btn {
   display: flex;
   justify-content: center;
@@ -376,4 +376,68 @@ a {
   font-size: 1.8rem;
   font-weight: 600px;
   line-height: 1.67;
+}
+
+/* ============================== feedback ============================== */
+.feedback {
+  margin-top: 135px;
+  padding: 96px 0;
+  background: #2e2100;
+}
+.feedback-list {
+  display: flex;
+  overflow: hidden;
+}
+.feedback-item {
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+  transform: translateX(-100%);
+  transition: all ease 0.5s;
+}
+.feedback-item .avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.feedback-item .info .member-name {
+  margin-top: 18px;
+  color: #f7f7f7;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1.42;
+}
+.feedback-item .info .desc {
+  margin-top: 4px;
+  font-size: 1.4rem;
+  line-height: 1.86;
+  color: #bfbcb2;
+}
+.feedback-item .dots {
+  display: flex;
+  margin-top: 28px;
+  gap: 6px;
+}
+.feedback-item .dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #634700;
+  cursor: pointer;
+}
+.feedback-item .dot.active {
+  background-color: var(--primary-color);
+  cursor: default;
+}
+.feedback-item .content {
+  width: 66%;
+  margin-left: auto;
+}
+.feedback-item blockquote {
+  font-style: italic;
+  color: #ffffff;
+  font-size: 2.6rem;
+  line-height: 1.54;
 }
