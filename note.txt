@@ -23,6 +23,7 @@ từ commit cũ sang nhánh mới và con trỏ sang nhánh mới rồi git push
 <a href="mailto:tranthanhtri23022005@gmail.com?cc=fo3lqm25@gmail.com&subject=hello&body=toi ten la"> : dùng mailto để gửi mail,
 dùng ? để phân tách tên người gửi và các phần trong nội dung mail, dùng & để phân tách các phần nội dung đó.
 &<mã_ký_tự>; : để viết ký tự đặc biệt (tra trong bảng HTML entity).
+<a href="tel:0827815171"> : dùng tel tự truy cập vào app điện thoại.
 <a title="hello bro"> : hiển thị tiêu đề khi để chuột vào.
 <pre>hello       bro< /pre> : giữ nguyên cấu trúc đoạn văn trong nó.
 <code> : sử dụng khi có 1 đoạn code (thường dùng với thẻ <pre> để giữ nguyên định dạng code), trình duyệt sẽ hiểu đây là đoạn code (thẻ có ngữ nghĩa).
@@ -660,4 +661,6 @@ object-fit: cover //để ảnh không bị méo.
 transform: translateX(-100%); //dịch theo trục x.
 transition: all ease 0.5s; //hiệu ứng trượt.
 
+Những gạch chân nào có border-radius thì phải dùng before, after.
+Còn những gạch chân nào không có border-radius thì dùng thuộc tính border là được.
 
